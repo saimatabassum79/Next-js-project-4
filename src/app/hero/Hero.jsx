@@ -5,10 +5,10 @@ import { Play } from "lucide-react";
 export default function Hero() {
   return (
     <section className="w-full bg-[#F5F7FA] py-16 md:py-20 lg:py-28">
-      <div className="container mx-auto px-6 sm:px-10 md:px-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <div className="container mx-auto px-6 sm:px-10 md:px-20 flex items-center gap-10 ">
 
         {/* Left Side */}
-        <div>
+        <div className="w-[650px]">
           <div className="flex items-center gap-2 mb-4">
             <span className="w-6 h-6 bg-teal-500 rounded-full flex items-center justify-center text-white text-sm">
               ⚡
@@ -49,7 +49,7 @@ export default function Hero() {
         </div>
 
         {/* Right Side Image */}
-        <div className="relative flex justify-center md:justify-end">
+        <div className="relative flex w-[500px] justify-center md:justify-end">
           {/* Floating box */}
           <div className="absolute animate-float-x top-40 md:top-60 -left-6 md:-left-10 bg-white shadow-lg rounded-xl px-3 py-2 text-center">
             <p className="text-xl sm:text-2xl font-bold text-teal-600">256+</p>
@@ -73,7 +73,7 @@ export default function Hero() {
               src="https://html.rrdevs.net/edcare/assets/img/shapes/hero-shape-1.png"
               width={100} // sm
               height={100}
-              className="sm:w-[120px] md:w-[150px]"
+              className="sm:w-[100px] md:w-[150px]"
               alt="Hero shape"
             />
           </div>
