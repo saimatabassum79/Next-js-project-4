@@ -62,7 +62,7 @@ export default function Hero() {
               src="https://html.rrdevs.net/edcare/assets/img/images/hero-img-1.png"
               width={300} // sm
               height={300}
-              className="sm:w-[350px] md:w-[400px] rounded-[25px] sm:rounded-[30px]"
+              className="sm:w-[350px] md:w-[400px] lg:mr-25 rounded-[25px] sm:rounded-[30px]"
               alt="Hero student"
             />
           </div>

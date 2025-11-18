@@ -51,14 +51,15 @@ export default function Header() {
           {/* RIGHT */}
           <div className="flex items-center gap-3">
             <User size={15} />
-            <span className="cursor-pointer">Login</span>
+            <span className="cursor-pointer">Login / Register</span>
 
             {/* Social icons only on lg+ */}
             <div className="hidden lg:flex items-center gap-3">
-              <FaFacebook />
-              <FaInstagram />
-              <FaBehance />
-              <FaYoutube />
+                <span>Follow Us</span>
+              <FaFacebook  size={19}/>
+              <FaInstagram  size={19}/>
+              <FaBehance  size={19} />
+              <FaYoutube  size={19}/>
             </div>
           </div>
         </div>
