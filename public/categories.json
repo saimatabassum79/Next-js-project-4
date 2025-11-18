@@ -1,0 +1,9 @@
+[
+  { "id": 1, "name": "Video" },
+  { "id": 2, "name": "Business" },
+  { "id": 3, "name": "Development" },
+  { "id": 4, "name": "Marketing" },
+  { "id": 5, "name": "Finance" },
+  { "id": 6, "name": "Gaming" }
+
+]
