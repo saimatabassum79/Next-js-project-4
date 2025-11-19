@@ -51,10 +51,12 @@ const SelectCategory = () => {
                 }
               `}
             >
+             
               <div className="bg-gray-100 px-1.5 py-1 rounded-full border border-gray-200">
                 <Image src={cat.img} width={20} height={20} alt={cat.title} className="shadow-sm" />
               </div>
-              {cat.title}
+              <Link href={`/explore/${cat.id}`}>
+              {cat.title}</Link>
             </button>
           ))}
         </div>
