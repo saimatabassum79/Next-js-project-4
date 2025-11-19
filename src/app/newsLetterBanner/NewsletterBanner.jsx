@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function NewsletterBanner() {
   return (
     <div className="bg-gray-900 py-20 text-white mt-20">
-      <div className="container mx-auto grid md:grid-cols-2 lg:px-20 px-5 gap-12 items-center">
+      <div className="container mx-auto grid md:grid-cols-2 lg:px-24 px-5 gap-12 items-center">
         <Image src="/asset/about-img-2.jpg" width={500} height={200} className=" w-[500px] h-[450px] rounded-xl" alt="" />
 
         <div>

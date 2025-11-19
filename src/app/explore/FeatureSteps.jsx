@@ -21,7 +21,8 @@ export default function FeatureSteps() {
 
   return (
     <section className="bg-[#191B20] py-16">
-        <div className="text-center my-7">
+       <div className="container mx-auto px-5 lg:px-20">
+         <div className="text-center my-7">
              <button className="bg-white text-sm text-gray-500  px-4 py-2 rounded-full mb-6 ">
                        Why Choose Us
                     </button>
@@ -42,6 +43,7 @@ export default function FeatureSteps() {
           </div>
         ))}
       </div>
+       </div>
     </section>
   );
 }

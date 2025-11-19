@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 
 export default function FeaturedCourses() {
-   
+   const [active, setActive] = useState(null);
   const [courses,setCourses] =useState([])
   useEffect(()=>{
     fetch('/courses.json')
@@ -23,11 +23,13 @@ export default function FeaturedCourses() {
     (data))
   }
     ,[])
-    const [select,setSelect] =useState(null);
+   
     const handleClick=(id)=>{
-        setSelect(id)
+        setActive(id)
     }
-   const filter = select? courses.filter(c=>c.id==select):courses
+    const filteredCourses = active
+        ? courses.filter(course => course.id === active)
+        : courses;
   return (
     <section className="py-16 bg-[#f7f9fb]">
      <div className="container mx-auto lg:px-20 px-3 ">
@@ -41,21 +43,28 @@ export default function FeaturedCourses() {
        
         
       <div className="flex flex-wrap justify-center gap-3 mt-12 mb-12">
-         <p onClick={()=>{handleClick(null)}} className="rounded-full hover:text-white border border-gray-300 hover:bg-teal-600 px-6 py-1 cursor-pointer ">All Categories</p>
-        {categories.map((cat, i) => (
+         <p onClick={()=>{handleClick(null)}} className={`rounded-full  border border-gray-300    ${!active
+                                ? "bg-[#07A698] text-white border-[#07A698] shadow-md"
+                                : "bg-base-100 shadow-md text-gray-700 hover:bg-[#8bdbd4] hover:text-[#07A698]"
+                            } px-6 py-1 cursor-pointer`}>All Categories</p>
+        {categories.map((cat, i) => 
           <button
             key={i}
             onClick={()=>handleClick(cat.id)}
-           className="rounded-full hover:text-white cursor-pointer border border-gray-300 hover:bg-teal-600 px-6 py-1 "
+           className={`rounded-full     ${active === cat.id
+                                    ? "bg-[#07A698] text-white border-[#07A698] shadow-md"
+                                    : "bg-base-100  text-gray-700 hover:bg-[#8bdbd4] hover:text-[#07A698]"
+                                } cursor-pointer border border-gray-300  px-6 py-1`}
           >
             {cat.name}
           </button>
-        ))}
+        )}
       
       </div>
      
-      <div className=" grid grid-cols-1 md:grid-cols-3 gap-8">
-        {filter.slice(0,3).map((c, i) => (
+     <div className="text-center">
+       <div className=" grid grid-cols-1 md:grid-cols-3 gap-8">
+        {filteredCourses.slice(0,3).map((c, i) => (
           <div key={i} className="bg-white shadow rounded-xl p-4 overflow-hidden">
             
             {/* Course image */}
@@ -69,10 +78,10 @@ export default function FeaturedCourses() {
 
             <div className="p-2">
               {/* Free Badge */}
-              <span className="text-teal-600 my-3 bg-[#E6F6F4] rounded-full px-3 py-1 text-sm font-semibold">Free</span>
+              <p className="text-teal-600 my-3 text-start w-15  bg-[#E6F6F4] rounded-full px-3 py-1 text-sm font-semibold">Free</p>
 
               {/* Title */}
-              <h3 className="mt-3 text-lg font-semibold leading-tight">
+              <h3 className="mt-3 text-lg text-start font-semibold leading-tight">
                 {c.title}
               </h3>
 
@@ -116,10 +125,11 @@ export default function FeaturedCourses() {
           </div>
         ))}
       </div>
-     <div className="mx-auto ">
-        <Link href="/courses"> <button className="bg-teal-600 text-white mt-10 max-w-2xl   justify-center  px-6 py-3 rounded-full font-semibold">
+     <div className="">
+        <Link href="/courses"> <button className="bg-teal-600 cursor-pointer text-white mt-10 max-w-2xl   justify-center  px-6 py-3 rounded-full font-semibold">
                         All Courses
                     </button></Link>
+     </div>
      </div>
      </div>
     </section>
