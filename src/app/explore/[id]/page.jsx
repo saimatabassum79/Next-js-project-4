@@ -1,15 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaStar } from "react-icons/fa";
+import courses from '../../data/courses.json'
 
 
 
 const Page = async({params}) => {
     const {id} = await params;
-    console.log(id);
-    
-     const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/courses.json`);
-  const courses = await res.json();
+    console.log(id); 
   const c = courses.find(c => (c.id) === parseInt(id));
   
   
@@ -18,7 +16,7 @@ console.log(courses);
 
     return (
         <div className="container mx-auto px-20 py-10">
-             <div  className="bg-white shadow rounded-xl p-4 flex items-center gap-2 overflow-hidden">
+             <div  className="bg-white shadow rounded-xl p-4 flex gap-3 items-center  overflow-hidden">
             
             {/* Course image */}
              <Image
@@ -78,6 +76,7 @@ console.log(courses);
           </div>
            
         </div>
+        
     );
 };
 

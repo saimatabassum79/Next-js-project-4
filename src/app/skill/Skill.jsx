@@ -5,7 +5,7 @@ import { Play, Headphones } from "lucide-react";
 export default function About() {
   return (
     <section className="w-full py-16 sm:py-20 lg:py-28 bg-white">
-      <div className="container px-6 sm:px-10 md:px-20 mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <div className="container px-7 sm:px-10 md:px-20 mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
         {/* Left Images */}
         <div className="relative flex justify-center md:justify-start">

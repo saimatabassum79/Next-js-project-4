@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "author": "Andrew Collins",
+    "title": "The Creator Mindset",
+    "image": "/asset/shop-1.png",
+    "oldPrice": 170,
+    "newPrice": 147,
+    "reviews": 15
+  },
+  {
+    "id": 2,
+    "author": "James Parker",
+    "title": "The Phoenix Encounter",
+    "image": "/asset/shop-2.png",
+    "oldPrice": 330,
+    "newPrice": 277,
+    "reviews": 15
+  },
+  {
+    "id": 3,
+    "author": "Ethan Thompson",
+    "title": "The Untapped Force Method",
+    "image": "/asset/shop-3.png",
+    "oldPrice": 250,
+    "newPrice": 157,
+    "reviews": 15
+  },
+  {
+    "id": 4,
+    "author": "William Bennett",
+    "title": "Own Your Authority",
+    "image": "/asset/shop-4.png",
+    "oldPrice": 80,
+    "newPrice": 57,
+    "reviews": 15
+  },
+  {
+    "id": 5,
+    "author": "James Parker",
+    "title": "Happy & Strong",
+    "image": "/asset/shop-5.png",
+    "oldPrice": 330,
+    "newPrice": 277,
+    "reviews": 15
+  },
+  {
+    "id": 6,
+    "author": "Ethan Thompson",
+    "title": "Fail More",
+    "image": "/asset/shop-6.png",
+    "oldPrice": 250,
+    "newPrice": 157,
+    "reviews": 15
+  },
+  {
+    "id": 7,
+    "author": "William Bennett",
+    "title": "Unlearn",
+    "image": "/asset/shop-7.png",
+    "oldPrice": 80,
+    "newPrice": 57,
+    "reviews": 15
+  },
+  {
+    "id": 8,
+    "author": "Andrew Collins",
+    "title": "Work Game",
+    "image": "/asset/shop-1.png",
+    "oldPrice": 170,
+    "newPrice": 147,
+    "reviews": 15
+  }
+]

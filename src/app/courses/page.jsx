@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
+import CoursePageBanner from "../coursePageBanner/CoursePageBanner";
 
 const page = () => {
 
@@ -15,13 +16,8 @@ const page = () => {
         , [])
     return (
         <div className="py-10">
-           <div style={{
-                    backgroundImage: `url(${"/asset/page-header-bg.png"})`
-                }} className="bg-cover  h-[400px]">
-
-
-                </div>
-            <div className="container mx-auto lg:px-20 ">
+          <CoursePageBanner title="Course Page" subtitle="Course Page"></CoursePageBanner>
+            <div className="container mx-auto lg:px-20 px-5 ">
               
                 <div className="text-center mb-10">
                     <span className="px-4 py-1 bg-white shadow rounded-full text-sm">

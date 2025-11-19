@@ -8,11 +8,6 @@ import { FaStar } from "react-icons/fa";
 
 export default function FeaturedCourses() {
    
-
-  // Category buttons
- 
-
-  
   const [courses,setCourses] =useState([])
   useEffect(()=>{
     fetch('/courses.json')
@@ -35,7 +30,7 @@ export default function FeaturedCourses() {
    const filter = select? courses.filter(c=>c.id==select):courses
   return (
     <section className="py-16 bg-[#f7f9fb]">
-     <div className="container mx-auto lg:px-20 ">
+     <div className="container mx-auto lg:px-20 px-3 ">
          <div className="text-center mb-10">
         <span className="px-4 py-1 bg-white shadow rounded-full text-sm">
           Top Class Courses

@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "title": "React Tutorial Beginners For Skills Building Carrera",
+    "lessons": 8,
+    "students": 50,
+    "views": "12K",
+    "rating": 4.7,
+    "category": "Development",
+    "author": "Kevin Perry",
+    "img": "/asset/course-img-1.png",
+    "authorImg": "/asset/hero-author-1.png",
+    "price": "$59.00"
+  },
+  {
+    "id": 2,
+    "title": "Cultural Perspectives in Teaching and Learning Environments",
+    "lessons": 8,
+    "students": 50,
+    "views": "12K",
+    "rating": 4.7,
+    "category": "Design",
+    "author": "Daniel Ross",
+    "img": "/asset/course-img-2.png",
+    "authorImg": "/asset/hero-author-2.png",
+    "price": "$59.00"
+  },
+  {
+    "id": 3,
+    "title": "Innovative Instructional Strategies for Enhancing Student",
+    "lessons": 8,
+    "students": 50,
+    "views": "12K",
+    "rating": 4.7,
+    "category": "Development",
+    "author": "Andrew Kilp",
+    "img": "/asset/course-img-3.png",
+    "authorImg": "/asset/hero-author-3.png",
+    "price": "$59.00"
+  },
+  {
+    "id": 4,
+    "title": "Mastering UI/UX Design for Web & Mobile Applications",
+    "lessons": 10,
+    "students": 70,
+    "views": "15K",
+    "rating": 4.8,
+    "category": "Design",
+    "author": "Sophia Turner",
+    "img": "/asset/course-img-4.png",
+    "authorImg": "/asset/hero-author-4.png",
+    "price": "$79.00"
+  },
+  {
+    "id": 5,
+    "title": "Advanced JavaScript Concepts for Modern Development",
+    "lessons": 12,
+    "students": 90,
+    "views": "20K",
+    "rating": 4.9,
+    "category": "Development",
+    "author": "Michael Scott",
+    "img": "/asset/course-img-5.png",
+    "authorImg": "/asset/hero-author-1.png",
+    "price": "$99.00"
+  },
+  {
+    "id": 6,
+    "title": "Digital Marketing Strategies to Grow Your Business",
+    "lessons": 9,
+    "students": 65,
+    "views": "13K",
+    "rating": 4.6,
+    "category": "Marketing",
+    "author": "Emily Carter",
+    "img": "/asset/course-img-2.png",
+    "authorImg": "/asset/hero-author-2.png",
+    "price": "$69.00"
+  }
+]
