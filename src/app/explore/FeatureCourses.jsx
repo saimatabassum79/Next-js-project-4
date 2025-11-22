@@ -5,10 +5,15 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { motion } from "framer-motion";
+import {useDispatch} from "react-redux";
+import { addToCart } from "../redux/cartSlice";
+import { addToWishlist } from "../redux/wishListSlice";
 
 export default function FeaturedCourses() {
+  const dispatch = useDispatch();
+   
+    
   const [active, setActive] = useState(null);
-
   const [courses, setCourses] = useState([]);
   useEffect(() => {
     fetch("/courses.json")
@@ -157,18 +162,25 @@ export default function FeaturedCourses() {
                     <span className="text-sm font-medium">{c.author}</span>
                   </div>
 
-                  <div className="flex items-center gap-1 text-teal-600 text-sm mt-3">
+                  
+                    <div className="flex items-center gap-1 text-teal-600 text-sm mt-3">
                     <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />{" "}
                     {c.rating}
                   </div>
-
+                     <p className="font-bold text-start my-2">{c.price}</p>
+                  
                   <div className="flex justify-between mt-5 items-center">
-                    <span className="font-bold">{c.price}</span>
-                    <Link href={`explore/${c.id}`}>
-                      <button className="px-4 py-2 border border-gray-200 text-sm rounded-full hover:bg-gray-100 transition">
+                   
+                    <div className="flex items-center gap-2">
+                      <button className="cursor-pointer px-4 py-2 border border-gray-200 text-sm rounded-full hover:bg-gray-100 transition" onClick={()=>dispatch(addToWishlist(c))}>Add To Wishlist</button>
+                    
+                      <button className="cursor-pointer px-4 py-2 border border-gray-200 text-sm rounded-full hover:bg-gray-100 transition" onClick={()=>dispatch(addToCart(c))}>Add To Cart</button>
+                      <Link href={`explore/${c.id}`}>
+                      <button className="px-4 py-2 border border-gray-200 text-sm rounded-full hover:bg-gray-100 cursor-pointer transition">
                         View Details
                       </button>
                     </Link>
+                    </div>
                   </div>
                 </div>
               </motion.div>

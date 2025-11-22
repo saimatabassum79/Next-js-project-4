@@ -4,9 +4,12 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import CoursePageBanner from "../coursePageBanner/CoursePageBanner";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/cartSlice";
+
 
 const page = () => {
-
+    const dispatch = useDispatch();
     const [courses, setCourses] = useState([])
     useEffect(() => {
         fetch('/courses.json')
@@ -16,9 +19,9 @@ const page = () => {
         , [])
     return (
         <div className="py-10">
-          <CoursePageBanner title="Course Page" subtitle="Course Page"></CoursePageBanner>
+            <CoursePageBanner title="Course Page" subtitle="Course Page"></CoursePageBanner>
             <div className="container mx-auto lg:px-20 px-5 ">
-              
+
                 <div className="text-center mb-10">
                     <span className="px-4 py-1 bg-white shadow rounded-full text-sm">
                         Top Class Courses
@@ -74,14 +77,17 @@ const page = () => {
                                     <FaStar></FaStar>
                                     <FaStar></FaStar> {c.rating}
                                 </div>
-
+                                <p className="font-bold text-start my-2">{c.price}</p>
                                 {/* Price + Button */}
-                                <div className="flex justify-between mt-5 items-center">
-                                    <span className="font-bold">{c.price}</span>
-                                   <Link href={`explore/${c.id}`}>
-                                    <button className="px-4 py-2 border border-gray-200 text-sm rounded-full hover:bg-gray-100 transition">
-                                        View Details
-                                    </button></Link>
+                                <div className="flex items-center gap-2">
+                                    <button className="cursor-pointer px-4 py-2 border border-gray-200 text-sm rounded-full hover:bg-gray-100 transition" onClick={() => dispatch(addToWishlist(c))}>Add To Wishlist</button>
+
+                                    <button className="cursor-pointer px-4 py-2 border border-gray-200 text-sm rounded-full hover:bg-gray-100 transition" onClick={() => dispatch(addToCart(c))}>Add To Cart</button>
+                                    <Link href={`explore/${c.id}`}>
+                                        <button className="px-4 py-2 border border-gray-200 text-sm rounded-full hover:bg-gray-100 cursor-pointer transition">
+                                            View Details
+                                        </button>
+                                    </Link>
                                 </div>
 
                             </div>

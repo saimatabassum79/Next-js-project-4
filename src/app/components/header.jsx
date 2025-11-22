@@ -21,8 +21,11 @@ import {
   FaInstagram,
   FaYoutube,
 } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 export default function Header() {
+  const count = useSelector((state)=>state.cart.count);
+  const count2 = useSelector((state)=>state.wishlist.count2)
   const pathname = usePathname();
   const [mobileMenu, setMobileMenu] = useState(false);
 
@@ -30,7 +33,7 @@ export default function Header() {
     pathname === path ? "text-teal-600 font-semibold" : "hover:text-teal-600";
 
   return (
-    <header className="w-full shadow-sm">
+    <header className="w-full shadow-sm ">
       {/* TOP BAR */}
       <div className="bg-[#1c2b32] text-white text-xs py-2">
         <div className="container mx-auto flex items-center justify-between px-4 md:px-20">
@@ -64,7 +67,7 @@ export default function Header() {
       </div>
 
       {/* MAIN HEADER */}
-      <div className="container mx-auto px-4 md:px-20 py-3 flex items-center justify-between">
+      <div className="container mx-auto  px-4 md:px-20 py-3 flex items-center justify-between">
         <Link href="/">
           <Image
             src="https://html.rrdevs.net/edcare/assets/img/logo/logo-1.png"
@@ -92,22 +95,21 @@ export default function Header() {
             </button>
           </div>
         </div>
-
         {/* ICONS */}
         <div className="flex items-center gap-4">
           <div className="relative">
-            <Heart size={22} className="text-gray-700" />
-            <span className="absolute -top-1 -right-1 bg-teal-600 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">
-              0
+            <Heart size={24} className="text-gray-700" />
+            <span className="absolute -top-3 -right-2 bg-teal-600 text-white text-[14px] w-6 h-6 flex items-center justify-center rounded-full">
+              {count2}
             </span>
           </div>
 
-          <div className="relative">
-            <ShoppingCart size={22} className="text-gray-700" />
-            <span className="absolute -top-1 -right-1 bg-teal-600 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">
-              0
+          <Link href="/cartList"><div className="relative">
+            <ShoppingCart size={24} className="text-gray-700" />
+            <span className="absolute -top-3 -right-2 bg-teal-600 text-white text-[14px] w-6 h-6 flex items-center justify-center rounded-full">
+                {count}
             </span>
-          </div>
+          </div></Link>
 
           {/* Desktop Button */}
           <button className="hidden md:block bg-teal-600 text-white px-5 py-2 rounded-full">
@@ -136,6 +138,7 @@ export default function Header() {
             <Link href="/about" className={isActive("/about")}>ABOUT</Link>
             <Link href="/blog" className={isActive("/blog")}>BLOG</Link>
             <Link href="/contact" className={isActive("/contact")}>CONTACT</Link>
+            
           </ul>
         </div>
       </nav>

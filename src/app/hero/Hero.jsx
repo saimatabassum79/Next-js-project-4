@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Play } from "lucide-react";
+import Counter from "../counter/Counter";
 
 
 const Hero = () => {
@@ -55,6 +56,7 @@ const Hero = () => {
           <p className="text-gray-700 text-sm md:text-base">
             Explore <span className="text-teal-600 font-bold">1350+ Courses</span> within Subject
           </p>
+          
         </div>
 
         {/* RIGHT IMAGE SECTION */}
