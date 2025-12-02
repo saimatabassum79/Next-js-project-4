@@ -24,7 +24,8 @@ import {
 import { useSelector } from "react-redux";
 
 export default function Header() {
-  const count = useSelector((state)=>state.cart.count);
+  const items = useSelector((state) => state.cart.items);
+const totalQuantity = items?.reduce((total, item) => total + item.quantity, 0);
   const count2 = useSelector((state)=>state.wishlist.count2)
   const pathname = usePathname();
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -104,12 +105,16 @@ export default function Header() {
             </span>
           </div>
 
-          <Link href="/cartList"><div className="relative">
-            <ShoppingCart size={24} className="text-gray-700" />
-            <span className="absolute -top-3 -right-2 bg-teal-600 text-white text-[14px] w-6 h-6 flex items-center justify-center rounded-full">
-                {count}
+          <Link href="/cartList">
+        <div className="relative">
+          <ShoppingCart size={24} />
+          {totalQuantity > 0 && (
+            <span className="absolute -top-3 -right-2 bg-teal-600 text-white w-6 h-6 flex items-center justify-center rounded-full text-xs">
+              {totalQuantity}
             </span>
-          </div></Link>
+          )}
+        </div>
+      </Link>
 
           {/* Desktop Button */}
           <button className="hidden md:block bg-teal-600 text-white px-5 py-2 rounded-full">
