@@ -25,10 +25,10 @@ export default function FeatureSteps() {
         <button className="bg-white border border-gray-300 text-sm text-gray-500 px-4 py-2 rounded-full mb-6">
           Our Features
         </button>
-        <h1 className="font-bold text-3xl">Online Education That Improves You</h1>
+        <h1 className="font-bold pb-6  text-3xl">Online Education That Improves You</h1>
       </div>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 px-5">
+      <div className="max-w-6xl mx-auto  grid grid-cols-1 md:grid-cols-3 gap-10 px-5">
         {steps.map((item, i) => (
           <div
             key={i}

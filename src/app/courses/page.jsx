@@ -22,7 +22,7 @@ const page = () => {
             <CoursePageBanner title="Course Page" subtitle="Course Page"></CoursePageBanner>
             <div className="container mx-auto lg:px-20 px-5 ">
 
-                <div className="text-center mb-10">
+                <div className="text-center lg:mt-14 mt-8 mb-10">
                     <span className="px-4 py-1 bg-white shadow rounded-full text-sm">
                         Top Class Courses
                     </span>
