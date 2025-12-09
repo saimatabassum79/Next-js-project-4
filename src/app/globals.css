@@ -1,9 +1,15 @@
 @import "tailwindcss";
 
+/* --- Force Light Mode Everywhere --- */
 :root {
   color-scheme: light !important;
+
+  /* Light theme values (force) */
+  --background: #ffffff;
+  --foreground: #000000;
 }
 
+/* --- Tailwind Theme Variables Mapping --- */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -11,15 +17,19 @@
   --font-mono: var(--font-geist-mono);
 }
 
-/* @media (prefers-color-scheme: dark) {
+/* --- Remove Dark Mode Auto Theme --- */
+/* 
+@media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-} */
+}
+*/
 
+/* --- Body Styling (Uses variables) --- */
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--background) !important;
+  color: var(--foreground) !important;
   font-family: Arial, Helvetica, sans-serif;
 }

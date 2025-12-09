@@ -68,7 +68,7 @@ const totalQuantity = items?.reduce((total, item) => total + item.quantity, 0);
       </div>
 
       {/* MAIN HEADER */}
-      <div className="container mx-auto  px-4 md:px-20 py-3 flex items-center justify-between">
+      <div className="container bg-white mx-auto  px-4 md:px-20 py-3 flex items-center justify-between">
         <Link href="/">
           <Image
             src="https://html.rrdevs.net/edcare/assets/img/logo/logo-1.png"
@@ -129,7 +129,7 @@ const totalQuantity = items?.reduce((total, item) => total + item.quantity, 0);
       </div>
 
       {/* NAVBAR (Desktop Only) */}
-      <nav className="hidden md:block border-t border-gray-200">
+      <nav className="hidden md:block border-t bg-white border-gray-200">
         <div className="container mx-auto px-4 md:px-20">
           <ul className="flex items-center gap-10 py-4 text-gray-700 font-semibold">
             <li className="flex items-center gap-2 cursor-pointer">
