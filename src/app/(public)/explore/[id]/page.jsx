@@ -1,5 +1,5 @@
 import Image from "next/image";
-import courses from "../../data/courses.json";
+import courses from "../../../data/courses.json";
 
 export default async function Page({ params }) {
   const {id} = await params

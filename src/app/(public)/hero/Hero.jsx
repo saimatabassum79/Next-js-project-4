@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Play } from "lucide-react";
-import Counter from "../counter/Counter";
+import Counter from "../../counter/Counter";
 
 
 const Hero = () => {

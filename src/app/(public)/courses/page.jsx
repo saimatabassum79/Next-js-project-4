@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import CoursePageBanner from "../coursePageBanner/CoursePageBanner";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../redux/cartSlice";
+import { addToCart } from "../../redux/cartSlice";
 
 
 const page = () => {
