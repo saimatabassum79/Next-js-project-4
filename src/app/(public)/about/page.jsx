@@ -1,10 +1,10 @@
 import React from 'react';
 import CoursePageBanner from '../coursePageBanner/CoursePageBanner';
 import About from '../skill/Skill';
-import FeatureSteps from '../online/Online';
+import FeatureSteps from '../../online/Online';
 import Parsent from '../parsent/Parsent';
 import Instructors from '../instruction/Instructor2';
-import OurFeaturesSection from '../features/Features';
+import OurFeaturesSection from '../../features/Features';
 
 const page = () => {
     return (

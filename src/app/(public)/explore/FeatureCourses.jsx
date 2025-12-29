@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { motion } from "framer-motion";
 import {useDispatch} from "react-redux";
-import { addToCart } from "../redux/cartSlice";
-import { addToWishlist } from "../redux/wishListSlice";
+import { addToCart } from "../../redux/cartSlice";
+import { addToWishlist } from "../../redux/wishListSlice";
 
 export default function FeaturedCourses() {
   const dispatch = useDispatch();
