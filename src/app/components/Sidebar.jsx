@@ -6,6 +6,8 @@ import {
   BarChart3, ShieldCheck, HelpCircle, LogOut,
   Bell
 } from "lucide-react";
+// --- ১. NextAuth থেকে প্রয়োজনীয় হুক ইম্পোর্ট করুন ---
+import { useSession, signOut } from "next-auth/react";
 
 const menuGroups = [
   {
@@ -25,7 +27,7 @@ const menuGroups = [
   {
     label: "Admin",
     items: [
-        { name: "Notifications", href: "/dashboard/notifications", icon: Bell },
+      { name: "Notifications", href: "/dashboard/notifications", icon: Bell },
       { name: "Security", href: "/dashboard/security", icon: ShieldCheck },
       { name: "Settings", href: "/dashboard/settings", icon: Settings },
     ]
@@ -34,11 +36,20 @@ const menuGroups = [
 
 export default function Sidebar() {
   const pathname = usePathname();
+  
+  // --- ২. সেশন ডাটা নিয়ে আসুন ---
+  const { data: session } = useSession();
+
+  // নামের প্রথম দুই অক্ষর বের করার জন্য (SA)
+  const getInitials = (name) => {
+    if (!name) return "U";
+    return name.split(" ").map(n => n[0]).join("").toUpperCase().slice(0, 2);
+  };
 
   return (
     <aside className="w-72 h-screen bg-[#0f172a] text-slate-400 flex flex-col border-r border-slate-800">
       
-      {/* 1. Logo Section (Static) */}
+      {/* 1. Logo Section */}
       <div className="p-4 shrink-0">
         <div className="flex items-center gap-3">
           <div className="h-10 w-10 bg-teal-600 rounded-xl flex items-center justify-center shadow-lg shadow-teal-600/20">
@@ -51,7 +62,7 @@ export default function Sidebar() {
         </div>
       </div>
 
-      {/* 2. Navigation Area (Flexible but fits screen) */}
+      {/* 2. Navigation Area */}
       <nav className="flex-1 px-4 space-y-6 overflow-hidden mt-2">
         {menuGroups.map((group, idx) => (
           <div key={idx} className="space-y-1">
@@ -86,19 +97,29 @@ export default function Sidebar() {
         ))}
       </nav>
 
-      {/* 3. Footer/User Section (Fixed at bottom) */}
+      {/* 3. Footer/User Section (Dynamic) */}
       <div className="p-1.5 shrink-0 border-t border-slate-800/60 bg-slate-900/20">
         <div className="flex items-center gap-3 px-2 py-3 mb-2 bg-slate-800/30 rounded-xl border border-slate-800/50">
-          <div className="h-9 w-9 rounded-lg bg-teal-600 flex items-center justify-center text-white text-xs font-bold">
-            SA
+          {/* ইউজারের নামের প্রথম অক্ষর এখানে দেখাবে */}
+          <div className="h-9 w-9 rounded-lg bg-teal-600 flex items-center justify-center text-white text-xs font-bold uppercase">
+            {session?.user?.name ? getInitials(session.user.name) : "U"}
           </div>
           <div className="flex-1 overflow-hidden">
-            <p className="text-xs font-bold text-white truncate">Sabbir Ahmed</p>
-            <p className="text-[10px] text-slate-500 truncate italic tracking-tight">Super Administrator</p>
+            {/* ডাইনামিক নাম ও ইমেইল */}
+            <p className="text-xs font-bold text-white truncate capitalize">
+              {session?.user?.name || "Loading..."}
+            </p>
+            <p className="text-[10px] text-slate-500 truncate italic tracking-tight">
+              {session?.user?.email || "Super Administrator"}
+            </p>
           </div>
         </div>
         
-        <button className="flex w-full items-center gap-3 px-4 py-1.5 text-xs font-bold text-slate-500 hover:text-rose-500 hover:bg-rose-500/5 rounded-lg transition-all group">
+        {/* লগআউট বাটন ফাংশনালিটি */}
+        <button 
+          onClick={() => signOut({ callbackUrl: "/login" })}
+          className="flex w-full items-center gap-3 px-4 py-1.5 text-xs font-bold text-slate-500 hover:text-rose-500 hover:bg-rose-500/5 rounded-lg transition-all group"
+        >
           <LogOut className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
           <span className="uppercase tracking-widest">Logout System</span>
         </button>
