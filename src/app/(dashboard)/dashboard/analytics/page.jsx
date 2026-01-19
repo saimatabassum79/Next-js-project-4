@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area } from 'recharts';
-import { Users, ShoppingCart, DollarSign, TrendingUp, MoreVertical, CheckCircle, Clock } from 'lucide-react';
+import { Users, ShoppingCart, DollarSign, TrendingUp, CheckCircle, Clock } from 'lucide-react';
 
 const data = [
   { name: 'Sat', visits: 2400, sales: 1400 },
@@ -20,13 +20,43 @@ const transactions = [
   { id: "#1257", user: "Tanvir Hossain", status: "Cancelled", amount: "$45.00", date: "3 hours ago" },
 ];
 
+// Helper Components (Defined outside to prevent re-renders and errors)
+const StatCard = ({ title, value, icon, trend, color }) => (
+  <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex items-center gap-4">
+    <div className={`p-3 rounded-xl text-white ${color}`}>{icon}</div>
+    <div>
+      <p className="text-sm text-gray-500">{title}</p>
+      <div className="flex items-center gap-2">
+        <h4 className="text-xl font-bold">{value}</h4>
+        <span className={`text-xs font-medium ${trend.startsWith('+') ? 'text-green-500' : 'text-red-500'}`}>
+          {trend}
+        </span>
+      </div>
+    </div>
+  </div>
+);
+
+const ActivityItem = ({ icon, title, time, desc }) => (
+  <div className="flex gap-4">
+    <div className="mt-1">{icon}</div>
+    <div className="w-full">
+      <div className="flex justify-between items-center">
+        <h5 className="text-sm font-bold text-gray-800">{title}</h5>
+        <span className="text-[10px] text-gray-400">{time}</span>
+      </div>
+      <p className="text-xs text-gray-500">{desc}</p>
+    </div>
+  </div>
+);
+
 const AnalyticsDashboard = () => {
   return (
     <div className="p-4 md:p-8 bg-gray-50 min-h-screen font-sans">
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-2xl md:text-3xl font-bold text-gray-800">Admin Overview</h1>
-        <p className="text-gray-500">Welcome back, here is what's happening today.</p>
+        {/* Fixed unescaped character: what's -> what&apos;s */}
+        <p className="text-gray-500">Welcome back, here is what&apos;s happening today.</p>
       </div>
 
       {/* 1. Stats Cards Section */}
@@ -39,7 +69,6 @@ const AnalyticsDashboard = () => {
 
       {/* 2. Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        {/* Area Chart */}
         <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
           <h3 className="text-lg font-semibold mb-4">Visitor Insights</h3>
           <div className="h-72">
@@ -61,7 +90,6 @@ const AnalyticsDashboard = () => {
           </div>
         </div>
 
-        {/* Bar Chart */}
         <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
           <h3 className="text-lg font-semibold mb-4">Sales Performance</h3>
           <div className="h-72">
@@ -80,7 +108,6 @@ const AnalyticsDashboard = () => {
 
       {/* 3. Bottom Section: Table & Activity */}
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-        {/* Recent Transactions Table */}
         <div className="xl:col-span-2 bg-white p-6 rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-lg font-semibold">Recent Transactions</h3>
@@ -119,12 +146,11 @@ const AnalyticsDashboard = () => {
           </div>
         </div>
 
-        {/* Recent Activity Feed */}
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
           <h3 className="text-lg font-semibold mb-4">Quick Activity</h3>
           <div className="space-y-6">
             <ActivityItem icon={<CheckCircle className="text-green-500"/>} title="Server Update" time="Just now" desc="Database successfully migrated." />
-            <ActivityItem icon={<Users className="text-blue-500"/>} title="New Registration" time="15m ago" desc="User 'Sabbir' joined the platform." />
+            <ActivityItem icon={<Users className="text-blue-500"/>} title="New Registration" time="15m ago" desc="User &apos;Sabbir&apos; joined the platform." />
             <ActivityItem icon={<Clock className="text-orange-500"/>} title="System Backup" time="1h ago" desc="Weekly backup completed." />
           </div>
           <button className="w-full mt-6 py-2 bg-gray-50 text-gray-600 rounded-xl text-sm font-medium hover:bg-gray-100 transition">
@@ -135,34 +161,5 @@ const AnalyticsDashboard = () => {
     </div>
   );
 };
-
-// Helper Components
-const StatCard = ({ title, value, icon, trend, color }) => (
-  <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex items-center gap-4">
-    <div className={`p-3 rounded-xl text-white ${color}`}>{icon}</div>
-    <div>
-      <p className="text-sm text-gray-500">{title}</p>
-      <div className="flex items-center gap-2">
-        <h4 className="text-xl font-bold">{value}</h4>
-        <span className={`text-xs font-medium ${trend.startsWith('+') ? 'text-green-500' : 'text-red-500'}`}>
-          {trend}
-        </span>
-      </div>
-    </div>
-  </div>
-);
-
-const ActivityItem = ({ icon, title, time, desc }) => (
-  <div className="flex gap-4">
-    <div className="mt-1">{icon}</div>
-    <div>
-      <div className="flex justify-between items-center">
-        <h5 className="text-sm font-bold text-gray-800">{title}</h5>
-        <span className="text-[10px] text-gray-400">{time}</span>
-      </div>
-      <p className="text-xs text-gray-500">{desc}</p>
-    </div>
-  </div>
-);
 
 export default AnalyticsDashboard;

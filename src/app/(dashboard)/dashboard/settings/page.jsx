@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { User, Bell, Lock, Eye, Globe, Moon, Save, Trash2, Camera } from 'lucide-react';
 
 const SettingsPage = () => {
@@ -42,9 +43,12 @@ const SettingsPage = () => {
             
             <div className="flex flex-col sm:flex-row items-center gap-6 mb-8">
               <div className="relative group">
-                <img 
-                  src="https://api.dicebear.com/7.x/avataaars/svg?seed=Alex" 
+                {/* Unsplash এর লিঙ্ক ব্যবহার করা হয়েছে */}
+                <Image 
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop" 
                   alt="Avatar" 
+                  width={96} 
+                  height={96}
                   className="w-24 h-24 rounded-3xl bg-gray-100 object-cover border-2 border-indigo-100"
                 />
                 <button className="absolute -bottom-2 -right-2 p-2 bg-white shadow-md rounded-xl text-indigo-600 hover:bg-indigo-50 transition-colors">
@@ -127,7 +131,6 @@ const SettingsPage = () => {
   );
 };
 
-// Sub-component for Navigation Tabs
 const SettingTab = ({ icon, label, active = false }) => (
   <button className={`flex items-center gap-3 px-4 py-3 rounded-xl font-bold text-sm transition-all w-full ${
     active ? 'bg-indigo-600 text-white shadow-md shadow-indigo-100' : 'text-gray-500 hover:bg-gray-100'

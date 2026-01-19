@@ -1,5 +1,7 @@
 "use client";
 import React, { useState } from 'react';
+// Next.js এর Image কম্পোনেন্ট ইম্পোর্ট করা হয়েছে
+import Image from 'next/image'; 
 import { Plus, Search, Filter, Edit, Trash2, MoreHorizontal, Package, Tag, Box } from 'lucide-react';
 
 const productsData = [
@@ -60,7 +62,14 @@ const ProductList = () => {
                 <tr key={product.id} className="hover:bg-gray-50 transition-colors group">
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-4">
-                      <img src={product.image} alt={product.name} className="w-12 h-12 rounded-xl object-cover bg-gray-100" />
+                      {/* <img> tag পরিবর্তন করে <Image /> করা হয়েছে */}
+                      <Image 
+                        src={product.image} 
+                        alt={product.name} 
+                        width={48} 
+                        height={48} 
+                        className="w-12 h-12 rounded-xl object-cover bg-gray-100" 
+                      />
                       <span className="text-sm font-bold text-gray-800">{product.name}</span>
                     </div>
                   </td>

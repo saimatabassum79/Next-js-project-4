@@ -20,7 +20,7 @@ export default function Instructors() {
         </span>
 
         <h2 className="text-2xl md:text-3xl font-bold mt-4">
-          Explore Our World's Best Courses
+          Explore Our World Best Courses
         </h2>
 
         {/* Grid Section */}

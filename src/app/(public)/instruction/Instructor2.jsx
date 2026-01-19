@@ -25,7 +25,7 @@ export default function Instructors() {
           Our Instructors
         </span>
         <h2 className="text-3xl md:text-4xl font-bold mt-4">
-          Explore Our World's Best Courses
+          Explore Our Worlds Best Courses
         </h2>
 
         {/* Grid Trainers */}

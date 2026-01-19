@@ -1,5 +1,7 @@
 "use client";
 import React from 'react';
+// Next.js এর Image কম্পোনেন্ট ইম্পোর্ট করা হয়েছে
+import Image from 'next/image';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area } from 'recharts';
 import { User, Package, Bell, Settings, CreditCard, Star, Clock, ShieldCheck, Zap } from 'lucide-react';
 
@@ -38,16 +40,19 @@ const UserDashboard = () => {
       {/* --- Main Dashboard Grid --- */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         
-        {/* Left Column (Profile & Overview) - Occupies 4 units on large screens */}
+        {/* Left Column (Profile & Overview) */}
         <div className="lg:col-span-4 space-y-6">
           
           {/* Profile Card */}
           <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-gray-100 text-center">
             <div className="relative w-28 h-28 mx-auto mb-5">
-              <img 
-                src="https://api.dicebear.com/7.x/avataaars/svg?seed=Alex" 
+              {/* <img> বদলে <Image /> ব্যবহার করা হয়েছে এবং Unsplash লিঙ্ক দেওয়া হয়েছে */}
+              <Image 
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop" 
                 alt="User Profile" 
-                className="rounded-3xl bg-indigo-50 p-1"
+                width={112} 
+                height={112}
+                className="rounded-3xl bg-indigo-50 p-1 object-cover"
               />
               <div className="absolute -bottom-2 -right-2 p-2 bg-indigo-600 rounded-xl text-white shadow-lg">
                 <ShieldCheck size={16} />
@@ -89,13 +94,13 @@ const UserDashboard = () => {
                 <Zap size={18} fill="currentColor" /> Upgrade to Pro
               </h4>
               <p className="text-indigo-100 text-xs mb-4">Get unlimited storage and AI tools.</p>
-              <button className="w-full py-2 bg-white text-indigo-600 rounded-xl text-sm font-bold hover:bg-opacity-90">Get Started</button>
+              <button className="w-full py-2 bg-white text-indigo-600 rounded-xl text-sm font-bold hover:bg-opacity-90 transition-all">Get Started</button>
             </div>
             <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-white opacity-10 rounded-full"></div>
           </div>
         </div>
 
-        {/* Right Column (Charts & Activity) - Occupies 8 units on large screens */}
+        {/* Right Column (Charts & Activity) */}
         <div className="lg:col-span-8 space-y-6">
           
           {/* Main Analytics Chart */}
@@ -135,7 +140,7 @@ const UserDashboard = () => {
             </div>
           </div>
 
-          {/* Recent Activity Table-style Section */}
+          {/* Recent History */}
           <div className="bg-white p-6 md:p-8 rounded-[2rem] shadow-sm border border-gray-100">
             <div className="flex justify-between items-center mb-6">
               <h3 className="font-bold text-lg">Recent History</h3>
@@ -154,7 +159,6 @@ const UserDashboard = () => {
   );
 };
 
-// Sub-component for Activity Rows
 const ActivityRow = ({ icon, title, time, amount, type }) => (
   <div className="flex items-center justify-between p-4 hover:bg-gray-50 rounded-2xl transition group cursor-pointer">
     <div className="flex items-center gap-4">
